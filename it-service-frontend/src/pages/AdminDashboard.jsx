@@ -191,16 +191,16 @@ function AdminDashboard() {
   }
 
   /* ---------- Auto Refresh ---------- */
-useEffect(() => {
+  useEffect(() => {
 
-  if (!adminKey) {
-    setLoading(false);
-    return;
-  }
+    if (!adminKey) {
+      setLoading(false);
+      return;
+    }
 
-  fetchTickets(adminKey);
+    fetchTickets(adminKey);
 
-}, [adminKey]);
+  }, [adminKey]);
 
   /* ---------- Login ---------- */
 
@@ -369,6 +369,7 @@ useEffect(() => {
               <tr>
 
                 <th className="p-3 text-left">Ticket ID</th>
+                <th className="p-3 text-left">Created At</th>
                 <th className="p-3 text-left">Customer</th>
                 <th className="p-3 text-left">Contact</th>
                 <th className="p-3 text-left">Issue</th>
@@ -387,7 +388,7 @@ useEffect(() => {
               {filteredTickets.length === 0 ? (
 
                 <tr>
-                  <td colSpan="9" className="p-6 text-center text-gray-500">
+                  <td colSpan="10" className="p-6 text-center text-gray-500">
                     No tickets match the filter.
                   </td>
                 </tr>
@@ -399,6 +400,19 @@ useEffect(() => {
                   <tr key={t._id} className="border-t align-top">
 
                     <td className="p-3 font-medium">{t.ticketId}</td>
+
+                    {/* Created At */}
+                    <td className="p-3 text-xs text-gray-600 whitespace-nowrap">
+                      {t.createdAt
+                        ? new Date(t.createdAt).toLocaleString("en-IN", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })
+                        : "—"}
+                    </td>
 
                     <td className="p-3">
                       <div>{t.name}</div>

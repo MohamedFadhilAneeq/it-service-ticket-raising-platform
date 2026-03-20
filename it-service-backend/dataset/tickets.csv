@@ -1,0 +1,151 @@
+issue,category,priority
+printer not printing,Hardware,High
+printer paper jam,Hardware,Medium
+printer driver missing,Hardware,Medium
+printer not detected by computer,Hardware,Medium
+printer showing error code,Hardware,Medium
+printer ink cartridge not recognized,Hardware,Low
+printer making strange noise,Hardware,Medium
+printer printing blank pages,Hardware,Medium
+printer connection lost,Hardware,Medium
+printer not responding,Hardware,High
+printer offline error,Hardware,Medium
+printer overheating warning,Hardware,High
+printer slow printing speed,Hardware,Low
+printer usb cable loose,Hardware,Low
+printer power light not turning on,Hardware,High
+printer scanning function not working,Hardware,Medium
+printer unable to connect to network,Hardware,High
+printer network configuration error,Hardware,Medium
+printer wireless connection failed,Hardware,High
+printer tray not closing properly,Hardware,Low
+laptop screen flickering,Hardware,High
+laptop not turning on,Hardware,Critical
+laptop overheating quickly,Hardware,Critical
+laptop keyboard not responding,Hardware,Medium
+laptop battery not charging,Hardware,High
+laptop fan making loud noise,Hardware,Medium
+laptop display showing lines,Hardware,High
+laptop randomly shutting down,Hardware,High
+laptop touchpad not working,Hardware,Medium
+laptop hinge broken,Hardware,Low
+laptop screen cracked,Hardware,High
+laptop charger not working,Hardware,High
+laptop usb ports not working,Hardware,Medium
+laptop hard disk failure warning,Hardware,Critical
+laptop boot failure error,Hardware,Critical
+laptop power button not responding,Hardware,High
+laptop webcam not detected,Hardware,Low
+laptop bluetooth not working,Hardware,Low
+laptop speakers not producing sound,Hardware,Medium
+laptop display brightness stuck,Hardware,Low
+keyboard keys not working,Hardware,Medium
+keyboard typing wrong characters,Hardware,Medium
+keyboard not detected by system,Hardware,Medium
+keyboard backlight not working,Hardware,Low
+keyboard disconnecting frequently,Hardware,Low
+keyboard stuck key problem,Hardware,Low
+keyboard usb cable damaged,Hardware,Low
+keyboard wireless connection lost,Hardware,Low
+keyboard lag while typing,Hardware,Low
+keyboard not responding after update,Hardware,Medium
+mouse not detected,Hardware,Low
+mouse cursor jumping randomly,Hardware,Low
+mouse scroll wheel not working,Hardware,Low
+mouse double clicking automatically,Hardware,Low
+mouse pointer freezing frequently,Hardware,Medium
+mouse usb not recognized,Hardware,Low
+mouse wireless receiver not working,Hardware,Low
+mouse battery draining quickly,Hardware,Low
+mouse tracking inaccurate,Hardware,Low
+mouse disconnecting repeatedly,Hardware,Low
+monitor showing no signal,Hardware,High
+monitor flickering display,Hardware,High
+monitor power light blinking,Hardware,Medium
+monitor color distortion issue,Hardware,Medium
+monitor resolution incorrect,Hardware,Low
+monitor display black screen,Hardware,High
+monitor cable not connected properly,Hardware,Low
+monitor not detected by computer,Hardware,Medium
+monitor screen brightness too low,Hardware,Low
+monitor backlight failure,Hardware,High
+computer overheating,Hardware,Critical
+computer not starting,Hardware,Critical
+computer making loud fan noise,Hardware,Medium
+computer stuck at boot screen,Hardware,High
+computer restarting automatically,Hardware,High
+computer running very slow,Hardware,Medium
+computer blue screen error,Hardware,Critical
+computer power supply failure,Hardware,Critical
+computer motherboard error,Hardware,Critical
+computer fan not spinning,Hardware,High
+wifi not connecting,Network,High
+internet connection slow,Network,Medium
+vpn not connecting,Network,High
+network timeout error,Network,Medium
+cannot access shared drive,Network,Medium
+router not responding,Network,High
+ethernet cable unplugged,Network,Low
+wifi disconnecting frequently,Network,High
+network authentication failed,Network,High
+network latency very high,Network,Medium
+wifi signal weak,Network,Medium
+wifi network not found,Network,High
+wifi password incorrect error,Network,Medium
+wifi router reboot required,Network,Medium
+wifi connection drops randomly,Network,High
+wifi unable to obtain ip address,Network,High
+wifi limited connectivity,Network,Medium
+wifi hotspot not working,Network,Medium
+wifi router overheating,Network,High
+wifi router firmware outdated,Network,Low
+internet not working,Network,High
+internet disconnecting repeatedly,Network,High
+internet speed fluctuating,Network,Medium
+internet not available on laptop,Network,High
+internet not available on desktop,Network,High
+internet connection lost after update,Network,Medium
+internet dns server not responding,Network,High
+internet gateway timeout error,Network,High
+internet unstable connection,Network,Medium
+internet modem not detected,Network,High
+vpn authentication failed,Network,High
+vpn connection timeout,Network,High
+vpn disconnecting frequently,Network,High
+vpn server unreachable,Network,High
+vpn client not starting,Network,Medium
+vpn login credentials rejected,Network,High
+vpn network unreachable error,Network,High
+vpn session expired frequently,Network,Medium
+vpn slow connection speed,Network,Medium
+vpn certificate expired,Network,High
+software installation failed,Software,Medium
+application crashing on startup,Software,Medium
+software license expired,Software,Low
+program freezing frequently,Software,Medium
+error opening application,Software,Low
+software update failed,Software,Medium
+application not responding,Software,Medium
+cannot install program,Software,Medium
+software dependency missing error,Software,Medium
+software configuration error,Software,Medium
+program not launching,Software,Medium
+program closing unexpectedly,Software,Medium
+program update stuck,Software,Medium
+program error message displayed,Software,Medium
+program installation stuck at setup,Software,Medium
+program missing files error,Software,Medium
+program compatibility issue,Software,Low
+program slow performance,Software,Low
+program crash after update,Software,Medium
+program settings not saving,Software,Low
+application login failed,Software,Medium
+application loading forever,Software,Medium
+application interface broken,Software,Low
+application database connection error,Software,High
+application plugin not working,Software,Low
+application update required error,Software,Low
+application feature not responding,Software,Medium
+application security warning popup,Software,Low
+application unexpected shutdown,Software,Medium
+application server unreachable,Software,High

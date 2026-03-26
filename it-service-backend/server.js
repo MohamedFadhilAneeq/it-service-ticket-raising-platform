@@ -9,18 +9,15 @@ const smsClient = twilio(
 
 const nodemailer = require("nodemailer");
 
-async function createTestTransporter() {
-  const testAccount = await nodemailer.createTestAccount();
-
-  return nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
-    },
-  });
-}
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,          // ✅ use 587 NOT 465
+  secure: false,      // ✅ VERY IMPORTANT
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 const ADMIN_KEY = process.env.ADMIN_KEY;
 

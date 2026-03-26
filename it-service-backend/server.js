@@ -9,13 +9,18 @@ const smsClient = twilio(
 
 const nodemailer = require("nodemailer");
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+async function createTestTransporter() {
+  const testAccount = await nodemailer.createTestAccount();
+
+  return nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass,
+    },
+  });
+}
 
 const ADMIN_KEY = process.env.ADMIN_KEY;
 
@@ -282,8 +287,11 @@ app.post("/api/admin/add-message", adminAuth, async (req, res) => {
       { ticketId },
       {
         $push: {
-          messages: { message },
-        },
+  messages: {
+    message,
+    timestamp: new Date(), // ✅ FORCE timestamp
+  },
+}
       },
       { new: true }
     );

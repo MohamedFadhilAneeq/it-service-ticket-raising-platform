@@ -19,9 +19,7 @@ function AdminDashboard() {
   /* ---------- Analytics ---------- */
 
   const totalTickets = tickets.length;
-
   const openTickets = tickets.filter(t => t.status === "Open").length;
-
   const highPriorityTickets = tickets.filter(
     t => t.priority === "High" || t.priority === "Critical"
   ).length;
@@ -52,7 +50,6 @@ function AdminDashboard() {
   /* ---------- Badges ---------- */
 
   function priorityBadge(priority) {
-
     const colors = {
       Low: "bg-green-100 text-green-700",
       Medium: "bg-yellow-100 text-yellow-700",
@@ -68,7 +65,6 @@ function AdminDashboard() {
   }
 
   function statusBadge(status) {
-
     const colors = {
       Open: "bg-blue-100 text-blue-700",
       "In Progress": "bg-yellow-100 text-yellow-700",
@@ -117,9 +113,7 @@ function AdminDashboard() {
       );
 
       setTickets(sorted);
-
       setLastRefresh(new Date());
-
       setAuthError("");
 
     } catch (err) {
@@ -140,20 +134,15 @@ function AdminDashboard() {
   async function updateStatus(ticketId, status) {
 
     const res = await fetch(`${apiUrl}/api/admin/update-status`, {
-
       method: "PUT",
-
       headers: {
         "Content-Type": "application/json",
         "x-admin-key": adminKey,
       },
-
       body: JSON.stringify({ ticketId, status }),
-
     });
 
     if (res.ok) fetchTickets();
-
   }
 
   /* ---------- Send Message ---------- */
@@ -165,16 +154,12 @@ function AdminDashboard() {
     if (!message) return;
 
     const res = await fetch(`${apiUrl}/api/admin/add-message`, {
-
       method: "POST",
-
       headers: {
         "Content-Type": "application/json",
         "x-admin-key": adminKey,
       },
-
       body: JSON.stringify({ ticketId, message }),
-
     });
 
     if (res.ok) {
@@ -191,6 +176,7 @@ function AdminDashboard() {
   }
 
   /* ---------- Auto Refresh ---------- */
+
   useEffect(() => {
 
     if (!adminKey) {
@@ -211,9 +197,7 @@ function AdminDashboard() {
     const key = e.target.adminKeyInput.value;
 
     sessionStorage.setItem("adminKey", key);
-
     setAdminKey(key);
-
     fetchTickets(key);
 
   }
@@ -221,9 +205,7 @@ function AdminDashboard() {
   function handleLogout() {
 
     sessionStorage.removeItem("adminKey");
-
     setAdminKey("");
-
     setTickets([]);
 
   }
@@ -270,8 +252,6 @@ function AdminDashboard() {
 
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Header */}
-
         <div className="flex justify-between items-center mb-2">
 
           <h1 className="text-3xl font-bold">Admin Dashboard</h1>
@@ -285,14 +265,10 @@ function AdminDashboard() {
 
         </div>
 
-        {/* Last Refresh */}
-
         {lastRefresh && (
-
           <p className="text-xs text-gray-500 mb-6">
             Last updated: {lastRefresh.toLocaleTimeString()}
           </p>
-
         )}
 
         {/* Analytics */}
@@ -367,7 +343,6 @@ function AdminDashboard() {
             <thead className="bg-blue-900 text-white">
 
               <tr>
-
                 <th className="p-3 text-left">Ticket ID</th>
                 <th className="p-3 text-left">Created At</th>
                 <th className="p-3 text-left">Customer</th>
@@ -378,7 +353,6 @@ function AdminDashboard() {
                 <th className="p-3 text-left">Status</th>
                 <th className="p-3 text-left">Messages</th>
                 <th className="p-3 text-left">Action</th>
-
               </tr>
 
             </thead>
@@ -388,7 +362,7 @@ function AdminDashboard() {
               {filteredTickets.length === 0 ? (
 
                 <tr>
-                  <td colSpan="10" className="p-6 text-center text-gray-500">
+                  <td colSpan="9" className="p-6 text-center text-gray-500">
                     No tickets match the filter.
                   </td>
                 </tr>
@@ -400,20 +374,11 @@ function AdminDashboard() {
                   <tr key={t._id} className="border-t align-top">
 
                     <td className="p-3 font-medium">{t.ticketId}</td>
-
-                    {/* Created At */}
                     <td className="p-3 text-xs text-gray-600 whitespace-nowrap">
                       {t.createdAt
-                        ? new Date(t.createdAt).toLocaleString("en-IN", {
-                            day: "2-digit",
-                            month: "short",
-                            year: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })
-                        : "—"}
+                      ? new Date(t.createdAt).toLocaleString()
+                      : "N/A"}
                     </td>
-
                     <td className="p-3">
                       <div>{t.name}</div>
                       <div className="text-gray-500 text-xs">{t.brand}</div>
@@ -432,23 +397,28 @@ function AdminDashboard() {
 
                     <td className="p-3">{statusBadge(t.status)}</td>
 
+                    {/* ✅ FIXED */}
                     <td className="p-3 w-64">
 
                       {t.messages?.length > 0 ? (
 
                         <ul className="space-y-2 max-h-40 overflow-y-auto pr-2">
 
-                          {t.messages.map((m, i) => (
+                          {[...(t.messages || [])]
+                            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                            .map((m, i) => (
 
-                            <li key={i} className="bg-gray-100 p-2 rounded border-l-4 border-blue-900">
+                              <li key={i} className="bg-gray-100 p-2 rounded border-l-4 border-blue-900">
 
-                              <p>{m.message}</p>
+                                <p>{m.message}</p>
 
-                              <p className="text-xs text-gray-500">
-                                {new Date(m.timestamp).toLocaleString()}
-                              </p>
+                                <p className="text-xs text-gray-500">
+                                  {m.timestamp
+                                    ? new Date(m.timestamp).toLocaleString()
+                                    : "No time"}
+                                </p>
 
-                            </li>
+                              </li>
 
                           ))}
 
@@ -462,38 +432,41 @@ function AdminDashboard() {
 
                     </td>
 
-                    <td className="p-3 space-y-2">
+                    {/* ✅ FIXED ACTION COLUMN */}
+                    <td className="p-3 w-52">
+                      <div className="flex flex-col gap-2">
 
-                      <select
-                        defaultValue={t.status}
-                        onChange={(e) => updateStatus(t.ticketId, e.target.value)}
-                        className="border rounded px-2 py-1 w-full"
-                      >
-                        <option>Open</option>
-                        <option>In Progress</option>
-                        <option>Closed</option>
-                      </select>
+                        <select
+                          defaultValue={t.status}
+                          onChange={(e) => updateStatus(t.ticketId, e.target.value)}
+                          className="border rounded px-2 py-1 text-sm"
+                        >
+                          <option>Open</option>
+                          <option>In Progress</option>
+                          <option>Closed</option>
+                        </select>
 
-                      <textarea
-                        value={newMessages[t.ticketId] || ""}
-                        onChange={(e) =>
-                          setNewMessages({
-                            ...newMessages,
-                            [t.ticketId]: e.target.value,
-                          })
-                        }
-                        placeholder="Type new update..."
-                        className="border rounded px-2 py-1 w-full text-sm"
-                        rows={2}
-                      />
+                        <textarea
+                          value={newMessages[t.ticketId] || ""}
+                          onChange={(e) =>
+                            setNewMessages({
+                              ...newMessages,
+                              [t.ticketId]: e.target.value,
+                            })
+                          }
+                          placeholder="Type new update..."
+                          className="border rounded px-2 py-1 text-sm resize-none"
+                          rows={2}
+                        />
 
-                      <button
-                        onClick={() => sendMessage(t.ticketId)}
-                        className="w-full bg-blue-900 text-white text-sm py-1 rounded hover:bg-blue-800"
-                      >
-                        Send Message
-                      </button>
+                        <button
+                          onClick={() => sendMessage(t.ticketId)}
+                          className="bg-blue-900 text-white text-sm py-1 rounded hover:bg-blue-800"
+                        >
+                          Send Message
+                        </button>
 
+                      </div>
                     </td>
 
                   </tr>

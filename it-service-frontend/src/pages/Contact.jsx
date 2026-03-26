@@ -60,7 +60,7 @@ function Contact() {
           <div className="bg-white rounded-xl shadow-md p-4">
   <iframe
     title="Genuine Computers & Technologies Location"
-    src="https://www.google.com/maps?q=11.3502133,77.7195103&output=embed"
+    src="https://www.google.com/maps?q=11.34846032546079, 77.73182286231078&output=embed"
     className="w-full h-[400px] rounded-xl border"
     loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
